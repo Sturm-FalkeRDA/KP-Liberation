@@ -36,7 +36,7 @@ class CfgDebriefing
 class CfgFunctions
 {
 
-	#include "addons\JSHK_Redress\cfgfunctions.hpp"
+	//#include "addons\JSHK_Redress\cfgfunctions.hpp"
 	class Haz
 	{
 		tag = "Haz";
