@@ -33,7 +33,7 @@ KP_liberation_ammo_crate = "B_CargoNet_01_ammo_F";						// This defines the ammu
 KP_liberation_fuel_crate = "CargoNet_01_barrels_F";						// This defines the fuel crates.																										Default is "CargoNet_01_barrels_F".
 
 /* - Friendly classnames.
-Each array below represents one of the 7 pages within the build menu. 
+Each array below represents one of the 7 pages within the build menu.
 Format: ["vehicle_classname",supplies,ammunition,fuel],	Example: ["B_APC_Tracked_01_AA_F",300,150,150],
 The above example is the NATO IFV-6a Cheetah, it costs 300 supplies, 150 ammunition and 150 fuel to build.	*/
 infantry_units = [
@@ -70,6 +70,8 @@ infantry_units = [
 
 light_vehicles = [
 	["B_Quadbike_01_F",50,0,25],										//Quad Bike
+	["NDS_6x6_ATV_MIL", 50,10,25],
+	["NDS_6x6_ATV_MIL2", 50,10,25],
 	["B_LSV_01_unarmed_F",75,0,50],										//Prowler
 	["B_LSV_01_armed_F",75,40,50],										//Prowler (HMG)
 	["B_LSV_01_AT_F",75,60,50],											//Prowler (AT)
@@ -77,7 +79,7 @@ light_vehicles = [
 	["B_MRAP_01_hmg_F",100,40,50],										//Hunter (HMG)
 	["B_MRAP_01_gmg_F",100,60,50],										//Hunter (GMG)
 	["I_MRAP_03_F",100,0,50],											//Strider
-	["I_MRAP_03_hmg_F",100,40,50],										//Strider (HMG) 
+	["I_MRAP_03_hmg_F",100,40,50],										//Strider (HMG)
 	["I_MRAP_03_gmg_F",100,60,50],										//Strider (GMG)
 	["rhsusf_m1025_w",100,0,50],										//M1025A2
 	["rhsusf_m1025_w_m2",100,40,50],									//M1025A2 (M2)
@@ -98,7 +100,7 @@ light_vehicles = [
 	["rhsusf_M1083A1P2_wd_open_fmtv_usarmy",125,0,75],					//M1083A1P2 Transport
 	["rhsusf_M1083A1P2_wd_fmtv_usarmy",125,0,75],						//M1083A1P2 Transport (Covered)
 	["rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy",100,0,50],				//M1083A1P2
-	["rhsusf_M977A4_BKIT_usarmy_wd",125,0,75],							//M977A4 BKIT 
+	["rhsusf_M977A4_BKIT_usarmy_wd",125,0,75],							//M977A4 BKIT
 	["rhsusf_M977A4_BKIT_M2_usarmy_wd",125,40,75],						//M977A4 BKIT (HMG)
 	["rhsusf_M1117_W",150,50,50],										//M1117 ASV
 	["B_UGV_01_F",150,0,50],											//UGV Stomper
@@ -206,7 +208,7 @@ buildings = [
 	["Flag_White_F",0,0,0],
 	["Land_Medevac_house_V1_F",0,0,0],
 	["Land_Medevac_HQ_V1_F",0,0,0],
-	["Flag_RedCrystal_F",0,0,0],	
+	["Flag_RedCrystal_F",0,0,0],
 	["CamoNet_BLUFOR_F",0,0,0],
 	["CamoNet_BLUFOR_open_F",0,0,0],
 	["CamoNet_BLUFOR_big_F",0,0,0],
@@ -247,7 +249,7 @@ buildings = [
 	["Land_BagFence_Short_F",0,0,0],
 	["Land_BagFence_Long_F",0,0,0],
 	["Land_BagFence_Corner_F",0,0,0],
-	["Land_BagFence_End_F",0,0,0],	
+	["Land_BagFence_End_F",0,0,0],
 	["Land_BagBunker_Small_F",0,0,0],
 	["Land_BagBunker_Large_F",0,0,0],
 	["Land_BagBunker_Tower_F",0,0,0],
@@ -262,10 +264,10 @@ buildings = [
 	["Land_HBarrierTower_F",0,0,0],
 	["Land_CncBarrierMedium_F",0,0,0],
 	["Land_CncBarrierMedium4_F",0,0,0],
-	["Land_Concrete_SmallWall_4m_F",0,0,0],	
+	["Land_Concrete_SmallWall_4m_F",0,0,0],
 	["Land_Concrete_SmallWall_8m_F",0,0,0],
 	["Land_CncShelter_F",0,0,0],
-	["Land_CncWall1_F",0,0,0],	
+	["Land_CncWall1_F",0,0,0],
 	["Land_CncWall4_F",0,0,0],
 	["Land_Sign_WarningMilitaryArea_F",0,0,0],
 	["Land_Sign_WarningMilAreaSmall_F",0,0,0],

@@ -31,3 +31,20 @@ class CfgDebriefing
 		pictureBackground = "";
 	};
 };
+
+//LIBERATION SF EDITS
+class CfgFunctions
+{
+
+	#include "addons\JSHK_Redress\cfgfunctions.hpp"
+	class Haz
+	{
+		tag = "Haz";
+		class notificationSystem
+		{
+			file = "addons\notificationSystem\functions";
+			class createNotification {};
+		};
+	};
+};
+//LIBERATION SF EDITS

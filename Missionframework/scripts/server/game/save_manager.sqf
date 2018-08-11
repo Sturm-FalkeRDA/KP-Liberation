@@ -261,6 +261,10 @@ if (!isNil "greuh_liberation_savegame") then {
 				_nextbuilding setVariable ["ace_isRepairFacility", 1, true];
 			};
 
+			if (_nextclass in KP_liberation_engrepair_vehicles) then {
+				_nextbuilding setVariable ["ACE_isRepairVehicle", 1, true];
+			};
+
 			if (_nextclass == "Flag_White_F") then {
 				_nextbuilding setFlagTexture "res\kpflag.jpg";
 			};

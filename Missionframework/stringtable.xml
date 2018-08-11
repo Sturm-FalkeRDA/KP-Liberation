@@ -12,7 +12,7 @@
         <!-- (WIP) Turkish localization made by Carbneth: https://github.com/Carbneth -->
         <!-- Portuguese localization made by NomadRomeo: https://github.com/NomadRomeo -->
         <Key ID="STR_MISSION_TITLE">
-            <Original>KP Liberation v0.963a</Original>
+            <Original>KP Liberation v0.963a _SF_</Original>
             <German>KP Liberation v0.963a</German>
             <Spanish>KP Liberation v0.963a</Spanish>
             <Italian>KP Liberation v0.963a</Italian>
@@ -5055,7 +5055,7 @@
 
         <!-- English adaptations in v0.95, need translations. -->
         <Key ID="STR_MISSION_DESCRIPTION">
-            <Original>Liberate the region from the enemy oppression! Strategy will be key! Good luck soldiers.
+            <Original>With the power of Freedom and Democracy you shall liberate Altis from the OPFOR oppression.
             </Original>
             <French>Avec le pouvoir de la Liberté et de la Démocratie votre mission est de libérer Altis de l'oppression
                 de l'OPFOR.
@@ -6730,5 +6730,17 @@
             <Turkish>== CANLANDIRMA AYARLARI ==</Turkish>
             <Portuguese>== OPÇÕES DE RESSUCITAÇÃO ==</Portuguese>
         </Key>
+        <Key ID="STR_author">
+        <English>Haz</English>
+      </Key>
+      <Key ID="STR_notification_queueCount">
+        <English>Queue count: %1</English>
+      </Key>
+      <Key ID="STR_notification_title_example">
+        <English>New Notification</English>
+      </Key>
+      <Key ID="STR_notification_message_example">
+        <English>This is a notification!</English>
+      </Key>
     </Package>
 </Project>

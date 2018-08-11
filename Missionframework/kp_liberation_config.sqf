@@ -17,9 +17,15 @@ KP_liberation_medical_vehicles = [
 	"RHS_UH60M_MEV_d",
 	"RHS_UH60M_MEV2_d",
 	"UK3CB_BAF_LandRover_Amb_FFR_Green_A_MTP",
-	"UK3CB_BAF_LandRover_Amb_FFR_Sand_A_DDPM"
+	"UK3CB_BAF_LandRover_Amb_FFR_Sand_A_DDPM",
+	"NDS_6x6_ATV_MIL",
+	"NDS_6x6_ATV_MIL2"
 ];
 
+KP_liberation_repair_vehicles = [
+	"NDS_6x6_ATV_MIL",
+	"NDS_6x6_ATV_MIL2"
+];
 // Classnames of ACE3 crates (which have to be in the unit preset as well).
 KP_liberation_ace_crates = [
 	"ACE_Box_82mm_Mo_HE",
@@ -28,7 +34,7 @@ KP_liberation_ace_crates = [
 	"ACE_medicalSupplyCrate_advanced"
 ];
 
-/* - Custom unit and arsenal preset settings. 
+/* - Custom unit and arsenal preset settings.
 If you want to change a preset, it's recommended to set all four presets to 0 and edit the appropriate custom.sqf files in the preset folders.*/
 
 /* BLUFOR preset:
@@ -73,7 +79,7 @@ KP_liberation_preset_civilians = 0;
 2 = Killah Potatoes Gaming Community arsenal preset.
 3 = RHS USAF arsenal preset.
 4 = RHS USAF arsenal preset with ACE.
-5 = RHS USAF arsenal preset with ACE and ACRE.	
+5 = RHS USAF arsenal preset with ACE and ACRE.
 6 = 3cbBAF and RHS USAF arsenal preset. */
 KP_liberation_arsenal = 0;
 
@@ -87,7 +93,7 @@ KP_liberation_fuel_max = 45;
 
 /* - Gameplay constant settings.
 Name of the savegame namespace inside of the [ServerProfileName].vars.Arma3Profile file.	*/
-GRLIB_save_key = "KP_LIBERATION_" + (toUpper worldName) + "_SAVEGAME";
+GRLIB_save_key = "KP_LIBERATION_SF_" + (toUpper worldName) + "_SAVEGAME";
 
 GRLIB_side_friendly = WEST;																						// Friendly side.
 GRLIB_side_enemy = EAST;																						// Enemy side.
@@ -148,7 +154,7 @@ KP_liberation_resistance_sector_chance = 35;																	// Chance that a gu
 KP_liberation_resistance_ambush_chance = 25;																	// Chance that some guerilla units will spawn in blufor sectors for an ambush, if reputation is low.
 
 /* - Default arsenal blacklist method.
-Useless if you're using anything other than "kp_liberation_arsenal = 0;" above. A whitelisted arsenal is always more performance friendly then a blacklisted arsenal.	
+Useless if you're using anything other than "kp_liberation_arsenal = 0;" above. A whitelisted arsenal is always more performance friendly then a blacklisted arsenal.
 REMEMBER: All static turret and UAV bags should be defined here, to stop players from exploiting free resources via the virtual arsenal.	*/
 blacklisted_from_arsenal = [
 	"I_HMG_01_weapon_F",

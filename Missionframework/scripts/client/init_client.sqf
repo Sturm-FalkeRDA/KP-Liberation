@@ -60,6 +60,10 @@ execVM "scripts\client\ui\ui_manager.sqf";
 execVM "scripts\client\ui\tutorial_manager.sqf";
 execVM "scripts\client\markers\update_production_sites.sqf";
 
+//LIBERATION SF init_client code changes
+execVM "addons\fpsFix\vehicleManager.sqf";
+//LIBERATION SF init_lcient code changes
+
 player addMPEventHandler ["MPKilled", {_this spawn kill_manager;}];
 player addEventHandler ["GetInMan", {[_this select 2] spawn kp_fuel_consumption;}];
 player addEventHandler ["GetInMan", {[_this select 2] spawn kp_cr_checkVehicle;}];
@@ -73,3 +77,4 @@ execVM "scripts\client\ui\intro.sqf";
 [] execVM "onPlayerRespawn.sqf";
 
 [player] joinSilent (createGroup [GRLIB_side_friendly, true]);
+// REVIEW No longer automatically locks the group

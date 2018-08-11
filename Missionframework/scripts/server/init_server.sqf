@@ -30,6 +30,9 @@ attack_in_progress_fob = compileFinal preprocessFileLineNumbers "scripts\server\
 attack_in_progress_sector = compileFinal preprocessFileLineNumbers "scripts\server\sector\attack_in_progress_sector.sqf";
 destroy_fob = compileFinal preprocessFileLineNumbers "scripts\server\sector\destroy_fob.sqf";
 ied_manager = compileFinal preprocessFileLineNumbers "scripts\server\sector\ied_manager.sqf";
+//LIBERATION SF init_server code changes
+boxSetup = compileFinal preprocessFileLineNumbers "scripts\server\a3w\scripts\F_boxSetup.sqf";
+//LIBERATION SF init_server code changes
 manage_captureboxes = compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_captureboxes.sqf";
 manage_intel = compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_intel.sqf";
 manage_one_sector = compileFinal preprocessFileLineNumbers "scripts\server\sector\manage_one_sector.sqf";
@@ -69,6 +72,9 @@ execVM "scripts\server\resources\recalculate_timer_sector.sqf";
 execVM "scripts\server\resources\unit_cap.sqf";
 execVM "scripts\server\sector\lose_sectors.sqf";
 execVM "scripts\server\sector\manage_sectors.sqf";
+//LIBERATION SF init_server code changes
+execVM "scripts\server\a3w\init_missions.sqf";
+//LIBERATION SF init_server code changes
 
 // Civil Reputation
 execVM "scripts\server\civrep\init_module.sqf";
