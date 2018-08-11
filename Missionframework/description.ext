@@ -33,6 +33,12 @@ class CfgDebriefing
 };
 
 //LIBERATION SF EDITS
+//RscTitles include uses the liberation titles system
+class notificationSystem
+{
+	#include "addons\notificationSystem\config\config_master.hpp"
+};
+
 class CfgFunctions
 {
 

@@ -512,6 +512,9 @@ class RscTitles
 			h = 0.03 * safezoneH;
 			colorText[] = {0.85, 0, 0, 1};
 		};
-		#include "notificationSystem\rsc\rsc_notifications.hpp"
+
 	};
+
+	#include "..\addons\notificationSystem\rsc\rsc_notifications.hpp"
+	
 };
