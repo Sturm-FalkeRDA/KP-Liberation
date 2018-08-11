@@ -157,7 +157,7 @@ class RscTitles
 			LabelPoint, CentralShadow, CentralLabel,
 			ActiveSectors, AlertBGPicture, AlertLabel, AlertTimer
 		};
-		
+
 		class BGPicture {
 			idc = 758001;
 			type =  CT_STATIC;
@@ -404,7 +404,7 @@ class RscTitles
 			y = (0.39 + ( ICONE_SPACY * 9 ) ) * safezoneH + safezoneY;
 			colorText[] = {0, 0.45, 0.95, 1};
 		};
-		
+
 		class CaptureFrameStandard {
 			idc = -1;
 			type =  CT_STATIC;
@@ -512,5 +512,6 @@ class RscTitles
 			h = 0.03 * safezoneH;
 			colorText[] = {0.85, 0, 0, 1};
 		};
+		#include "notificationSystem\rsc\rsc_notifications.hpp"
 	};
 };
