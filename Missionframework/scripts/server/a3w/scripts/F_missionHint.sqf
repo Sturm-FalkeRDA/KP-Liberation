@@ -16,10 +16,10 @@ _titleColor = param [4, "", [""]];
 
 _msg = format
 	[
-		"<t color='%5' shadow='2' size='1.75'>%1</t><br/>" +
+		"<t color='%5' shadow='2' size='1.25'>%1</t><br/>" +
 		"<t color='%5'>--------------------------------</t><br/>" +
-		(if (_subtitle != "") then { "<t size='1.25'>%2</t><br/>" } else { "" }) +
-		(if (_picture != "") then { "<img size='5' image='%3'/><br/>" } else { "" }) +
+		(if (_subtitle != "") then { "<t size='1'>%2</t><br/>" } else { "" }) +
+		(if (_picture != "") then { "<img size='1' image='%3'/><br/>" } else { "" }) +
 		"%4",
 		_title,
 		_subtitle,
@@ -29,6 +29,8 @@ _msg = format
 	];
 //[_msg, 0, 0, 5, 0, -1, 90]  remoteExec ["BIS_fnc_dynamicText",  -2];
 ["New notification", _msg, [0, 0, 0, 1], [1, 1, 0, 1]] remoteExec ["Haz_fnc_createNotification",  -2];
+//["New notification", _msg, [0, 0, 0, 1], [1, 1, 0, 1]] remoteExec ["Haz_fnc_createNotification",  -2];
+//["<img size='1' align='right' color='#ffffff' image=_picture/> New notification", "This is a notification!"] remoteExec ["Haz_fnc_createNotification", -2];
 uiSleep 10;
 //["New notification", "This is a notification!", [0, 0, 0, 1], [1, 1, 0, 1]] spawn Haz_fnc_createNotification;
 //["<img size='1' align='right' color='#ffffff' image='\A3\Ui_f\data\GUI\Cfg\Ranks\private_gs.paa'/> New notification", "This is a notification!"] spawn Haz_fnc_createNotification;

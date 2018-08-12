@@ -21,6 +21,8 @@ ForestMissionMarkers = (allMapMarkers select {["ForestMission_", _x] call fn_sta
 // Filters BLU sectors
 MissionSpawnMarkers = [MissionSpawnMarkers] call checkSpawn;
 ForestMissionMarkers = [ForestMissionMarkers] call checkSpawn;
+// LIBERATION SF
+// LIBERATION uses a new system that doesn't need manual markers, only Altis_SF is set up to support the old system. New system: _spawn_marker = [2000,999999,false] call F_findOpforSpawnPoint;
 
 if !(ForestMissionMarkers isEqualTo []) then {
 	SideMissions append
