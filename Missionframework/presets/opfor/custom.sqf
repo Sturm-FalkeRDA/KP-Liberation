@@ -63,6 +63,11 @@ militia_vehicles = [
 opfor_vehicles = [
 	"O_MRAP_02_hmg_F",													//Ifrit (HMG)
 	"O_MRAP_02_hmg_F",													//Ifrit (GMG)
+	"O_MRAP_02_hmg_F",													//Ifrit (HMG)
+	"O_MRAP_02_hmg_F",													//Ifrit (GMG)
+	"O_LSV_02_AT_F",													//Qilin (AT)
+	"O_LSV_02_armed_F",												//Qilin (HMG)
+	"O_LSV_02_unarmed_F",													//LSV unarmed
 	"O_LSV_02_AT_F",													//Qilin (AT)
 	"O_LSV_02_armed_F",												//Qilin (HMG)
 	"O_LSV_02_unarmed_F",													//LSV unarmed

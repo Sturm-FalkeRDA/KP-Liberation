@@ -38,7 +38,7 @@ for "_i" from 1 to _nbUnits do
 	_unit addItemToVest "30Rnd_65x39_caseless_green";
 	_unit addItemToVest "30Rnd_65x39_caseless_green";
 	_unit addItemToVest "HandGrenade";
-	_unit addHeadgear "H_HelmetO_ocamo";	
+	_unit addHeadgear "H_HelmetO_ocamo";
 
 	switch (true) do
 	{
@@ -118,10 +118,12 @@ for "_i" from 1 to _nbUnits do
     Veteran > 0.65 and <= 0.85
     Expert > 0.85
 */
-	_unit setSkill 0.65;
+//	_unit setSkill 0.65;
 	_unit setSkill ["courage", 1];
 	_unit allowFleeing 0;
 	_unit setVariable ['mission_AI', true];
+	_unit setVariable ["JSHK_doneRedress",true];
+	// JSHK Redress supports grp exclusion, but this is one way to do it.
 
 /*
 	_accuracy = 1; // Relative multiplier; absolute default accuracy for ARMA3 is 0.25
@@ -129,5 +131,5 @@ for "_i" from 1 to _nbUnits do
 */
 	_unit addMPEventHandler ["MPKilled", {_this spawn kill_manager}];
 };
-
+(_group) setVariable ["VCM_NORESCUE",true];
 [_group, _pos] call defendArea;
