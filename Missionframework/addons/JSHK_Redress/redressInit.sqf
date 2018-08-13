@@ -38,25 +38,105 @@ _factionExclusion = [];//<<Put faction classnames here
 
 //Gear classes names go below!
 //-----------------------------
-JSHK_weaponArr = ["LMG_Zafir_F","arifle_Mk20_F"];
-JSHK_uniformArr = ["U_IG_Guerilla3_1","U_IG_Guerilla3_2","U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_leader", "U_I_C_Soldier_Bandit_3_F", "U_IG_Guerrilla_6_1", "U_I_C_Soldier_Para_1_F", "U_I_C_Soldier_Camo_F"];
-JSHK_vestArr = ["V_BandollierB_khk", "Vest_V_BandollierB_rgr", "Vest_V_Chestrig_rgr", "V_TacChestrig_cbr_F", "V_Chestrig_khk", "V_Chestrig_blk", "V_Chestrig_oli", "V_HarnessO_brn", "V_HarnessO_gry", "V_HarnessOSpec_brn", "V_HarnessOSpec_gry", "V_PlateCarrier1_rgr_noflag_F", "V_PlateCarrier2_rgr_noflag_F", "V_Pocketed_olive_F", "V_Pocketed_coyote_F", "V_Pocketed_black_F", "V_LegStrapBag_black_F", "V_LegStrapBag_coyote_F", "V_LegStrapBag_olive_F"];
-JSHK_headArr = ["H_Shemag_olive","H_ShemagOpen_khk","H_ShemagOpen_tan", "H_PASGT_basic_blue_F", "H_PASGT_basic_olive_F", "H_PASGT_basic_black_F", "H_HeadBandage_stained_F", "H_HeadBandage_clean_F", "H_HeadBandage_bloody_F", "H_Bandanna_khk", "H_Bandanna_cbr"];
-JSHK_goggleArr = ["nogoggle", "nogoggle", "nogoggle", "nogoggle", ""];
-JSHK_backpackArr = ["B_FieldPack_cbr","B_OutdoorPack_tan", "O_Mortar_01_weapon_F", "nopack", "nopack", "nopack", "O_HMG_01_weapon_F", "O_AA_01_weapon_F", "nopack", "nopack", "nopack", "nopack"];
-JSHK_voiceArr = ["regularvoice","Male01PER","Male02PER","Male03PER"];
-JSHK_SLArr = ["Headgear_H_Beret_blk", "Headgear_H_Watchcap_blk", "Headgear_H_MilCap_ghex_F", "Headgear_H_Bandanna_camo"];
+JSHK_weaponArr =
+["arifle_AKM_F", 0.16,
+"arifle_AKM_FL_F", 0.18,
+"arifle_AKS_F", 0.23,
+"arifle_AK12_F", 0.14,
+"arifle_AK12_GL_F", 0.12,
+"arifle_SPAR_01_khk_F", 0.08,
+"arifle_SPAR_01_snd_F", 0.04,
+"arifle_SPAR_01_blk_ERCO_Pointer_F", 0.05,
+"arifle_SPAR_01_blk_ACO_Pointer_F", 0.05,
+"SMG_05_F", 0.08,
+"srifle_DMR_06_olive_F", 0.14,
+"srifle_DMR_06_camo_F", 0.12];
+//TODO Implement
+JSHK_MGweaponARR =
+["arifle_CTARS_hex_F", 0.16,
+"LMG_Zafir_F", 0.23,
+"arifle_SPAR_02_blk_F", 0.04,
+"arifle_SPAR_02_blk_F", 0.04,
+"arifle_SPAR_02_blk_F", 0.04];
+//TODO Implement
+JSHK_HGweaponARR =
+["MMG_01_hex_F", 1,
+"MMG_01_tan_F", 1];
+JSHK_sidearmARR =
+["hgun_Rook40_F"
+
+];
+//JSHK_uniformArr = ["U_IG_Guerilla3_1","U_IG_Guerilla3_2","U_IG_Guerilla1_1","U_IG_Guerilla2_1","U_IG_Guerilla2_2","U_IG_Guerilla2_3","U_IG_leader", "U_I_C_Soldier_Bandit_3_F", "U_IG_Guerrilla_6_1", "U_I_C_Soldier_Para_1_F", "U_I_C_Soldier_Camo_F"];
+JSHK_uniformArr =
+["U_O_officer_noInsignia_hex_F", 0.23,
+"U_O_CombatUniform_ocamo", 0.08];
+JSHK_vestArr =
+["V_BandollierB_khk", 0.23,
+"Vest_V_BandollierB_rgr", 0.23,
+"Vest_V_Chestrig_rgr", 0.23,
+"V_TacChestrig_cbr_F", 0.23,
+"V_Chestrig_khk", 0.23,
+"V_Chestrig_blk", 0.23,
+"V_Chestrig_oli", 0.23,
+"V_HarnessO_brn", 0.14,
+"V_HarnessO_gry", 0.14,
+"V_HarnessOSpec_brn", 0.18,
+"V_HarnessOSpec_gry", 0.18,
+"V_PlateCarrier1_rgr_noflag_F", 0.12,
+"V_PlateCarrier2_rgr_noflag_F", 0.12,
+"V_Pocketed_olive_F", 0.18,
+"V_Pocketed_coyote_F", 0.18,
+"V_Pocketed_black_F", 0.18,
+"V_LegStrapBag_black_F", 0.12,
+"V_LegStrapBag_coyote_F", 0.12,
+"V_LegStrapBag_olive_F", 0.12,
+"milgp_v_mmac_teamleader_belt_CB", 0.08,
+"milgp_v_marciras_light_cb", 0.08];
+JSHK_headArr =
+["milgp_h_airframe_02_CB_hexagon", 0.12,
+"H_Cap_brn_SPECOPS", 0.18,
+"H_HelmetCrew_O", 0.14,
+"H_HelmetB_light_black", 0.18,
+"H_PASGT_basic_olive_F", 0.23,
+ "H_PASGT_basic_black_F", 0.23,
+ "H_HeadBandage_stained_F", 0.14,
+ "H_HeadBandage_clean_F", 0.14,
+ "H_HeadBandage_bloody_F", 0.12,
+ "H_Bandanna_khk", 0.12,
+ "H_Bandanna_cbr", 0.12];
+JSHK_goggleArr =
+["milgp_f_face_shield_shemagh_CB", 0.14,
+"milgp_f_face_shield_shemagh_khk", 0.14,
+"G_WirelessEarpiece_F", 0.8];
+JSHK_backpackArr =
+["milgp_bp_hydration_cb", 0.33,
+"B_FieldPack_cbr", 0.23,
+"B_OutdoorPack_tan", 0.23,
+"O_Mortar_01_weapon_F", 0.18,
+"O_HMG_01_weapon_F", 0.12,
+"O_AA_01_weapon_F", 0.08];
+//JSHK_voiceArr = ["regularvoice","Male01PER","Male02PER","Male03PER"];
+JSHK_SLArr =
+["Headgear_H_Beret_blk", 0.23,
+"Headgear_H_Watchcap_blk", 0.12,
+"Headgear_H_MilCap_ghex_F", 0.18,
+"Headgear_H_Bandanna_camo", 0.14,
+"milgp_h_airframe_02_CB_hexagon", 0.08];
 JSHK_SNArr = ["U_O_GhillieSuit", "U_O_FullGhillie_lsh"];
 //-----------------------------
 
 
 //Special Units Classnames
 //-----------------------------
-JSHK_ATunits = ["O_Soldier_AT_F","I_Soldier_AT_F","B_Soldier_AT_F"];
+JSHK_ATunits = ["O_Soldier_AT_F","I_Soldier_AT_F","B_Soldier_AT_F", "B_soldier_LAT_F", "B_recon_LAT_F"];
 JSHK_Medicalunits = ["O_medic_F","I_medic_F","B_medic_F"];
 JSHK_AAunits = ["O_Soldier_AA_F","I_Soldier_AA_F","B_Soldier_AA_F"];
 JSHK_SLunits = ["O_officer_F", "O_Soldier_SL_F", "O_Soldier_TL_F"];
 JSHK_SNunits = ["O_sniper_F", "O_spotter_F"];
+//TODO Implement
+JSHK_MGunits = ["O_Soldier_AR_F"];
+//TODO Implement
+JSHK_HGunits = ["O_HeavyGunner_F"];
 //-----------------------------
 
 

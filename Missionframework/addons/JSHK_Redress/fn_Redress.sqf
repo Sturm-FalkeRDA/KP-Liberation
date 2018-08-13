@@ -22,7 +22,7 @@ must include credits to the author (J.Shock).
 
 //if (isServer) then
 //{
-	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie"];
+	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie", "_HGunits", "_MGunits", "_HGweapon", "_MGweapon"];
 
 	_units = (_this select 0);
 	_special = (_this select 1);
@@ -43,6 +43,8 @@ must include credits to the author (J.Shock).
 	_AAunits = [];
 	_SLunits = [];
 	_SNunits = [];
+	_MGunits = [];
+	_HGunits = [];
 
 	if (_special) then
 	{
@@ -57,22 +59,27 @@ must include credits to the author (J.Shock).
 
 			if (typeOf _x in JSHK_SNunits) then { _SNunits pushBack _x; };
 
+			if (typeOf _x in JSHK_MGunits) then { _MGunits pushBack _x; };
+
+			if (typeOf _x in JSHK_HGunits) then { _HGunits pushBack _x; };
+
 		} foreach _units;
 	};
 
 //The redressing process...
-
+// LIBERATION SF The engine solution selectRandomWeighted runs 50% slower than selectRandom in this instance. (0.0036 vs 0.0024) That being said, the original function ran at 0.0078ms.
+// TODO Implement
 	{
-		_uniform = JSHK_uniformArr call BIS_fnc_selectRandom;
-		//_weapon = JSHK_weaponArr call BIS_fnc_selectRandom;
-		_weapon = primaryWeapon _x;
-		_backpack = JSHK_backpackArr call BIS_fnc_selectRandom;
-		_head = JSHK_headArr call BIS_fnc_selectRandom;
-		_vest = JSHK_vestArr call BIS_fnc_selectRandom;
-		_goggle = JSHK_goggleArr call BIS_fnc_selectRandom;
-		_voice = JSHK_voiceArr call BIS_fnc_selectRandom;
-		_slheadgear = JSHK_SLArr call BIS_fnc_selectRandom;
-		_snghillie = JSHK_SNArr call BIS_fnc_selectRandom;
+		_uniform = selectRandomWeighted JSHK_uniformArr;
+		_weapon = selectRandomWeighted JSHK_weaponArr;
+		//_weapon = primaryWeapon _x;
+		_backpack = selectRandomWeighted JSHK_backpackArr;
+		_head = selectRandomWeighted JSHK_headArr;
+		_vest = selectRandomWeighted JSHK_vestArr;
+		_goggle = selectRandomWeighted JSHK_goggleArr;
+		_voice = selectRandomWeighted JSHK_voiceArr;
+		_slheadgear = selectRandomWeighted JSHK_SLArr;
+		_snghillie = selectRandom JSHK_SNArr;
 		_muzzles = getArray(configfile >> "cfgWeapons" >> (_weapon) >> "muzzles");
         _unit = _x;
 
@@ -80,9 +87,9 @@ must include credits to the author (J.Shock).
 		_x unassignItem "NVGoggles";
 		_x unassignItem "NVGoggles_INDEP";
 		clearItemCargo _x;
-		//clearWeaponCargo _x;
-		//clearMagazineCargo _x;
-		//removeallWeapons _x;
+		clearWeaponCargo _x;
+		clearMagazineCargo _x;
+		removeallWeapons _x;
 		removeAllHandgunItems _x;
 		removeHeadgear _x;
 		removeGoggles _x;
@@ -98,20 +105,20 @@ must include credits to the author (J.Shock).
 		_x addMagazines ["HandGrenade", 2];
 		_x addMagazines ["SmokeShell", 2];
 		_x addMagazines ["1Rnd_HE_Grenade_shell", 2];
-		if (_voice != "regularvoice") then {[_x, _voice] remoteExecCall ["setSpeaker", 0]};
+		//if (_voice != "regularvoice") then {[_x, _voice] remoteExecCall ["setSpeaker", 0]};
 		{
 			if (_x=="this") then
 			{
 				_mags = getArray(configfile >> "cfgWeapons" >> (_weapon) >> "magazines");
 				{
-					_unit addMagazines [_x, 10];
+					_unit addMagazines [_x, 8];
 				} forEach [_mags select 0];
 			}
 			else
 			{
-				_mags = getArray(configfile >> "cfgWeapons" >> (_weapon) >> _x >> "magazines");
+
 				{
-					_unit addMagazines [_x, 10];
+					_unit addMagazines [_x, 8];
 				} forEach [_mags select 0];
 			};
 		} forEach _muzzles;
@@ -165,6 +172,7 @@ must include credits to the author (J.Shock).
 		{
 			removeHeadgear _x;
 			_x addHeadgear _slheadgear;
+			_x addBackpack "B_FieldPack_khk";
 			_x addMagazines ["SmokeShell", 1];
 			_x addItemToBackpack "FirstAidKit";
 			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
@@ -178,10 +186,67 @@ must include credits to the author (J.Shock).
 			removeUniform _x;
 			_x forceaddUniform _snghillie;
 			_x assignItem "NVGoggles_OPFOR";
+			_x addBackpack "B_FieldPack_khk";
 			_x addItemToBackpack "FirstAidKit";
 			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
 
 		} foreach _SNunits;
+	};
+
+	if ((count _HGunits) > 0) then
+	{
+		{
+			clearMagazineCargo _x;
+			removeallWeapons _x;
+			_HGweapon = selectRandomWeighted JSHK_HGweaponARR;
+			{
+				if (_x=="this") then
+				{
+					_mags = getArray(configfile >> "cfgWeapons" >> (_HGweapon) >> "magazines");
+					{
+						_unit addMagazines [_x, 8];
+					} forEach [_mags select 0];
+				}
+				else
+				{
+
+					{
+						_unit addMagazines [_x, 3];
+					} forEach [_mags select 0];
+				};
+			} forEach _muzzles;
+
+			_x addWeapon _HGweapon;
+
+		} foreach _HGunits;
+	};
+
+	if ((count _MGunits) > 0) then
+	{
+		{
+			clearMagazineCargo _x;
+			removeallWeapons _x;
+			_MGweapon = selectRandomWeighted JSHK_MGweaponARR;
+			{
+				if (_x=="this") then
+				{
+					_mags = getArray(configfile >> "cfgWeapons" >> (_HGweapon) >> "magazines");
+					{
+						_unit addMagazines [_x, 8];
+					} forEach [_mags select 0];
+				}
+				else
+				{
+
+					{
+						_unit addMagazines [_x, 3];
+					} forEach [_mags select 0];
+				};
+			} forEach _muzzles;
+
+			_x addWeapon _MGweapon;
+
+		} foreach _HGunits;
 	};
 
 	if (_continuous) then

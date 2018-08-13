@@ -37,7 +37,7 @@ if ((isNil {player getVariable "bis_revive_ehHandleHeal"} || isDedicated) && !(b
 };
 // LIBERATION SF EDITS
 "layer_notifications" cutRsc ["rsc_notifications", "PLAIN"];
-//0 = [EAST,true,true] execVM "addons\JSHK_Redress\redressInit.sqf";
+0 = [EAST,true,true] execVM "addons\JSHK_Redress\redressInit.sqf";
 addMissionEventHandler ["Loaded",{
     [] spawn
     {
