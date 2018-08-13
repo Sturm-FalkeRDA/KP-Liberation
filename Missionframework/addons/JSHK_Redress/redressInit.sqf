@@ -52,17 +52,16 @@ JSHK_weaponArr =
 "srifle_DMR_06_olive_F", 0.14,
 "srifle_DMR_06_camo_F", 0.12];
 //TODO Implement
-JSHK_MGweaponARR =
+JSHK_MGweaponArr =
 ["arifle_CTARS_hex_F", 0.16,
 "LMG_Zafir_F", 0.23,
-"arifle_SPAR_02_blk_F", 0.04,
-"arifle_SPAR_02_blk_F", 0.04,
 "arifle_SPAR_02_blk_F", 0.04];
 //TODO Implement
-JSHK_HGweaponARR =
+JSHK_HGweaponArr =
 ["MMG_01_hex_F", 1,
-"MMG_01_tan_F", 1];
-JSHK_sidearmARR =
+"MMG_01_tan_F", 1,
+"MMG_01_hex_ARCO_LP_F", 1];
+JSHK_sidearmArr =
 ["hgun_Rook40_F"
 
 ];
@@ -72,8 +71,8 @@ JSHK_uniformArr =
 "U_O_CombatUniform_ocamo", 0.08];
 JSHK_vestArr =
 ["V_BandollierB_khk", 0.23,
-"Vest_V_BandollierB_rgr", 0.23,
-"Vest_V_Chestrig_rgr", 0.23,
+"V_BandollierB_rgr", 0.23,
+"V_Chestrig_rgr", 0.23,
 "V_TacChestrig_cbr_F", 0.23,
 "V_Chestrig_khk", 0.23,
 "V_Chestrig_blk", 0.23,
@@ -112,15 +111,14 @@ JSHK_backpackArr =
 ["milgp_bp_hydration_cb", 0.33,
 "B_FieldPack_cbr", 0.23,
 "B_OutdoorPack_tan", 0.23,
-"O_Mortar_01_weapon_F", 0.18,
-"O_HMG_01_weapon_F", 0.12,
-"O_AA_01_weapon_F", 0.08];
+"O_Mortar_01_weapon_F", 0.04,
+"O_HMG_01_weapon_F", 0.04,
+"O_AA_01_weapon_F", 0.04];
 //JSHK_voiceArr = ["regularvoice","Male01PER","Male02PER","Male03PER"];
 JSHK_SLArr =
-["Headgear_H_Beret_blk", 0.23,
-"Headgear_H_Watchcap_blk", 0.12,
-"Headgear_H_MilCap_ghex_F", 0.18,
-"Headgear_H_Bandanna_camo", 0.14,
+["H_Beret_blk", 0.23,
+"H_MilCap_ghex_F", 0.18,
+"H_Bandanna_camo", 0.14,
 "milgp_h_airframe_02_CB_hexagon", 0.08];
 JSHK_SNArr = ["U_O_GhillieSuit", "U_O_FullGhillie_lsh"];
 //-----------------------------

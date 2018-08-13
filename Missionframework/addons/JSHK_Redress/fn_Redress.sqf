@@ -22,7 +22,7 @@ must include credits to the author (J.Shock).
 
 //if (isServer) then
 //{
-	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie", "_HGunits", "_MGunits", "_HGweapon", "_MGweapon"];
+	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie", "_HGunits", "_MGunits", "_HGweapon", "_MGweapon", "_Mgammo"];
 
 	_units = (_this select 0);
 	_special = (_this select 1);
@@ -77,9 +77,11 @@ must include credits to the author (J.Shock).
 		_head = selectRandomWeighted JSHK_headArr;
 		_vest = selectRandomWeighted JSHK_vestArr;
 		_goggle = selectRandomWeighted JSHK_goggleArr;
-		_voice = selectRandomWeighted JSHK_voiceArr;
+		//_voice = selectRandomWeighted JSHK_voiceArr;
 		_slheadgear = selectRandomWeighted JSHK_SLArr;
 		_snghillie = selectRandom JSHK_SNArr;
+		_HGweapon = selectRandomWeighted JSHK_HGweaponArr;
+		_MGweapon = selectRandomWeighted JSHK_MGweaponArr;
 		_muzzles = getArray(configfile >> "cfgWeapons" >> (_weapon) >> "muzzles");
         _unit = _x;
 
@@ -97,10 +99,11 @@ must include credits to the author (J.Shock).
 		removeBackpack _x;
 
 		_x forceaddUniform _uniform;
-		if (_backpack != "nopack") then {_x addBackpack _backpack;};
+		//if (_backpack != "nopack") then {_x addBackpack _backpack;};
+		_x addBackpack _backpack;
 		_x addHeadgear _head;
 		_x addVest _vest;
-		if (_voice != "nogoggle") then {_x addGoggles _goggle;};
+		_x addGoggles _goggle;
 		//_x addGoggles _goggle;
 		_x addMagazines ["HandGrenade", 2];
 		_x addMagazines ["SmokeShell", 2];
@@ -197,26 +200,12 @@ must include credits to the author (J.Shock).
 	{
 		{
 			clearMagazineCargo _x;
-			removeallWeapons _x;
-			_HGweapon = selectRandomWeighted JSHK_HGweaponARR;
-			{
-				if (_x=="this") then
-				{
-					_mags = getArray(configfile >> "cfgWeapons" >> (_HGweapon) >> "magazines");
-					{
-						_unit addMagazines [_x, 8];
-					} forEach [_mags select 0];
-				}
-				else
-				{
-
-					{
-						_unit addMagazines [_x, 3];
-					} forEach [_mags select 0];
-				};
-			} forEach _muzzles;
-
 			_x addWeapon _HGweapon;
+			_x addBackpack "B_FieldPack_khk";
+			_x addItemToBackpack "FirstAidKit";
+			_x addMagazines ["150Rnd_93x64_Mag", 2];
+			_x addItemToVest "150Rnd_93x64_Mag";
+			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
 
 		} foreach _HGunits;
 	};
@@ -224,29 +213,26 @@ must include credits to the author (J.Shock).
 	if ((count _MGunits) > 0) then
 	{
 		{
-			clearMagazineCargo _x;
-			removeallWeapons _x;
-			_MGweapon = selectRandomWeighted JSHK_MGweaponARR;
-			{
-				if (_x=="this") then
-				{
-					_mags = getArray(configfile >> "cfgWeapons" >> (_HGweapon) >> "magazines");
-					{
-						_unit addMagazines [_x, 8];
-					} forEach [_mags select 0];
-				}
-				else
-				{
+			removeUniform _x;
+			_x forceaddUniform _snghillie;
+			_x assignItem "NVGoggles_OPFOR";
+			_x addBackpack "B_FieldPack_khk";
+			_x addItemToBackpack "FirstAidKit";
+			// This is silly. I should use arrays properly so I can retrieve the ammo directly from the _MGweapon array.
+			_Mgammo = switch _MGweapon do {
+			  	case "arifle_CTARS_hex_F": {"100Rnd_580x42_Mag_Tracer_F"};
+			  	case "LMG_Zafir_F": {"150Rnd_762x54_Box_Tracer"};
+			    case "arifle_SPAR_02_blk_F": {"30Rnd_762x39_Mag_Green_F"};
+			  	default {"ACE_Banana"};
+			};
+			if (_MGweapon == "ACE_Banana") then {
+			    diag_log format ["JSHK Redress returned something weird (%1) for LMG ammo.", _MGweapon]
+			} else {
+			    _x addMagazines [_Mgammo];
+			};
+			_x addMagazines ["APERSBoundingMine_Range_Mag", 2];
 
-					{
-						_unit addMagazines [_x, 3];
-					} forEach [_mags select 0];
-				};
-			} forEach _muzzles;
-
-			_x addWeapon _MGweapon;
-
-		} foreach _HGunits;
+		} foreach _MGunits;
 	};
 
 	if (_continuous) then

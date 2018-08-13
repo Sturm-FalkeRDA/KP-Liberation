@@ -30,13 +30,13 @@ for "_i" from 1 to _nbUnits do
 
 	_unit addUniform "U_O_CombatUniform_ocamo";
 	_unit addItemToUniform "FirstAidKit";
-	_unit addItemToUniform "30Rnd_65x39_caseless_green";
-	_unit addItemToUniform "30Rnd_65x39_caseless_green";
+	_unit addItemToUniform "30Rnd_762x39_Mag_Tracer_F";
+	_unit addItemToUniform "30Rnd_762x39_Mag_Tracer_F";
 	_unit addVest "V_PlateCarrier2_blk";
-	_unit addItemToVest "30Rnd_65x39_caseless_green";
-	_unit addItemToVest "30Rnd_65x39_caseless_green";
-	_unit addItemToVest "30Rnd_65x39_caseless_green";
-	_unit addItemToVest "30Rnd_65x39_caseless_green";
+	_unit addItemToVest "30Rnd_762x39_Mag_Tracer_F";
+	_unit addItemToVest "30Rnd_762x39_Mag_Tracer_F";
+	_unit addItemToVest "30Rnd_762x39_Mag_Tracer_F";
+	_unit addItemToVest "30Rnd_762x39_Mag_Tracer_F";
 	_unit addItemToVest "HandGrenade";
 	_unit addHeadgear "H_HelmetO_ocamo";
 
@@ -46,7 +46,8 @@ for "_i" from 1 to _nbUnits do
 		case (_i % 3 == 0):
 		{
 			_unit addMagazine "1Rnd_HE_Grenade_shell";
-			_unit addWeapon "arifle_Katiba_GL_ARCO_pointer_F";
+			_unit addWeapon "arifle_AK12_GL_F";
+			_unit addPrimaryWeaponItem "acc_flashlight";
 			_unit addMagazine "1Rnd_HE_Grenade_shell";
 			_unit addMagazine "1Rnd_HE_Grenade_shell";
 			_unit addMagazine "1Rnd_HE_Grenade_shell";
@@ -61,6 +62,7 @@ for "_i" from 1 to _nbUnits do
 			_unit addItemToUniform "FirstAidKit";
 			_unit addMagazine "150Rnd_762x54_Box";
 			_unit addWeapon "LMG_Zafir_ARCO_F";
+			_unit addPrimaryWeaponItem "acc_flashlight";
 			_unit addMagazine "150Rnd_762x54_Box";
 			_unit addMagazine "150Rnd_762x54_Box";
 		};
@@ -69,7 +71,8 @@ for "_i" from 1 to _nbUnits do
 		case (_i % 5 == 0):
 		{
 			_unit addBackpack "B_Kitbag_mcamo";
-			_unit addWeapon "arifle_Katiba_ARCO_pointer_F";
+			_unit addWeapon "arifle_AK12_F";
+			_unit addPrimaryWeaponItem "acc_flashlight";
 			_unit addMagazine "RPG32_F";
 			_unit addWeapon "launch_RPG32_F";
 			_unit addMagazine "RPG32_F";
@@ -80,7 +83,8 @@ for "_i" from 1 to _nbUnits do
 		case (_i % 6 == 0):
 		{
 			_unit addBackpack "B_Kitbag_mcamo";
-			_unit addWeapon "arifle_Katiba_ARCO_pointer_F";
+			_unit addWeapon "arifle_AK12_F";
+			_unit addPrimaryWeaponItem "acc_flashlight";
 			_unit addMagazine "Titan_AA";
 			_unit addWeapon "launch_O_Titan_F";
 			_unit addMagazine "Titan_AA";
@@ -91,7 +95,8 @@ for "_i" from 1 to _nbUnits do
 		{
 			if (_unit == leader _group) then
 			{
-				_unit addWeapon "arifle_Katiba_ARCO_pointer_F";
+				_unit addWeapon "arifle_AK12_F";
+				_unit addPrimaryWeaponItem "acc_flashlight";
 				_unit addItemToVest "HandGrenade";
 				_unit addItemToVest "HandGrenade";
 				_unit addItemToUniform "FirstAidKit";
@@ -99,7 +104,7 @@ for "_i" from 1 to _nbUnits do
 			}
 			else
 			{
-				_unit addWeapon "arifle_Katiba_ACO_F";
+				_unit addWeapon "arifle_AKM_FL_F";
 				_unit addItemToUniform "FirstAidKit";
 				_unit addItemToUniform "30Rnd_65x39_caseless_green";
 				_unit addItemToUniform "30Rnd_65x39_caseless_green";
@@ -107,7 +112,7 @@ for "_i" from 1 to _nbUnits do
 		};
 	};
 
-	_unit addPrimaryWeaponItem "acc_flashlight";
+	//_unit addPrimaryWeaponItem "acc_flashlight";
 	_unit enablegunlights "forceOn";
 
 
