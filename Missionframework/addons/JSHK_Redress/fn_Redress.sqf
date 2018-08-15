@@ -22,7 +22,7 @@ must include credits to the author (J.Shock).
 
 //if (isServer) then
 //{
-	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie", "_HGunits", "_MGunits", "_HGweapon", "_MGweapon", "_Mgammo"];
+	private ["_units", "_unitSide", "_continuous", "_special", "_uniform", "_ATunits", "_Medunits", "_AAunits", "_weapon", "_goggle", "_head", "_vest", "_backpack", "_voice", "_sWeap", "_SLunits", "_slheadgear", "_SNunits", "_snghillie", "_HGunits", "_MGunits", "_HGweapon", "_MGweapon", "_Mgammo", "_nvgs"];
 
 	_units = (_this select 0);
 	_special = (_this select 1);
@@ -85,6 +85,13 @@ must include credits to the author (J.Shock).
 		_muzzles = getArray(configfile >> "cfgWeapons" >> (_weapon) >> "muzzles");
         _unit = _x;
 
+		/*_nvgs = hmd _x;
+		if !(_nvgs isEqualTo "") then {
+		   _x unassignItem _nvgs;
+			 _x removeItem _nvgs;
+		};*/
+		// I think these commands will silently fail and cost less time compared to an if statement, so test performance when you get the chance.
+		// https://community.bistudio.com/wiki/unlinkItem
 		_x unassignItem "NVGoggles_OPFOR";
 		_x unassignItem "NVGoggles";
 		_x unassignItem "NVGoggles_INDEP";
@@ -164,6 +171,7 @@ must include credits to the author (J.Shock).
 	if ((count _AAunits) > 0) then
 	{
 		{
+			removeBackpack _x;
 			_x addWeapon "launch_Titan_F";
 			_x addBackpack "B_FieldPack_khk";
 			_x addMagazine ["Titan_AA", 2];
@@ -174,11 +182,12 @@ must include credits to the author (J.Shock).
 	{
 		{
 			removeHeadgear _x;
+			removeBackpack _x;
 			_x addHeadgear _slheadgear;
 			_x addBackpack "B_FieldPack_khk";
 			_x addMagazines ["SmokeShell", 1];
 			_x addItemToBackpack "FirstAidKit";
-			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
+			//_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
 
 		} foreach _SLunits;
 	};
@@ -188,7 +197,8 @@ must include credits to the author (J.Shock).
 		{
 			removeUniform _x;
 			_x forceaddUniform _snghillie;
-			_x assignItem "NVGoggles_OPFOR";
+			//_x assignItem "NVGoggles_OPFOR";
+			_x assignItem "ACE_NVG_Gen2";
 			_x addBackpack "B_FieldPack_khk";
 			_x addItemToBackpack "FirstAidKit";
 			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
@@ -200,12 +210,13 @@ must include credits to the author (J.Shock).
 	{
 		{
 			clearMagazineCargo _x;
+			removeBackpack _x;
 			_x addWeapon _HGweapon;
 			_x addBackpack "B_FieldPack_khk";
 			_x addItemToBackpack "FirstAidKit";
 			_x addMagazines ["150Rnd_93x64_Mag", 2];
 			_x addItemToVest "150Rnd_93x64_Mag";
-			_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
+			//_x addMagazines ["APERSBoundingMine_Range_Mag", 1];
 
 		} foreach _HGunits;
 	};
@@ -214,8 +225,7 @@ must include credits to the author (J.Shock).
 	{
 		{
 			removeUniform _x;
-			_x forceaddUniform _snghillie;
-			_x assignItem "NVGoggles_OPFOR";
+			removeBackpack _x;
 			_x addBackpack "B_FieldPack_khk";
 			_x addItemToBackpack "FirstAidKit";
 			// This is silly. I should use arrays properly so I can retrieve the ammo directly from the _MGweapon array.
@@ -228,9 +238,9 @@ must include credits to the author (J.Shock).
 			if (_MGweapon == "ACE_Banana") then {
 			    diag_log format ["JSHK Redress returned something weird (%1) for LMG ammo.", _MGweapon]
 			} else {
-			    _x addMagazines [_Mgammo];
+			    _x addMagazines [_Mgammo, 3];
 			};
-			_x addMagazines ["APERSBoundingMine_Range_Mag", 2];
+			//_x addMagazines ["APERSBoundingMine_Range_Mag", 2];
 
 		} foreach _MGunits;
 	};
