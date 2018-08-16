@@ -224,7 +224,7 @@ must include credits to the author (J.Shock).
 	if ((count _MGunits) > 0) then
 	{
 		{
-			removeUniform _x;
+
 			removeBackpack _x;
 			_x addBackpack "B_FieldPack_khk";
 			_x addItemToBackpack "FirstAidKit";
@@ -234,6 +234,7 @@ must include credits to the author (J.Shock).
 			  	case "LMG_Zafir_F": {"150Rnd_762x54_Box_Tracer"};
 			    case "arifle_SPAR_02_blk_F": {"30Rnd_762x39_Mag_Green_F"};
 			  	default {"ACE_Banana"};
+					
 			};
 			if (_MGweapon == "ACE_Banana") then {
 			    diag_log format ["JSHK Redress returned something weird (%1) for LMG ammo.", _MGweapon]

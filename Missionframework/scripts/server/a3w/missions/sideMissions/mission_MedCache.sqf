@@ -22,8 +22,14 @@ _setupObjects =
 {
 	_missionPos = markerPos _missionLocation;
 	_box1 = ["ACE_medicalSupplyCrate_advanced", _missionPos, true] call boxSetup;
-	_box2 = ["ACE_medicalSupplyCrate", _missionPos, true] call boxSetup;
-	[_box2, "mission_ACEMedical"] call fn_refillbox;
+	//_box2 = ["ACE_medicalSupplyCrate", _missionPos, true] call boxSetup;
+	//[_box2, "mission_ACEMedical"] call fn_refillbox;
+	// See manage_captureboxes for multiplier integration.
+	private _spawnclass = selectRandom KP_liberation_crates;
+
+	private _newbox = [selectRandom KP_liberation_crates, 100, _missionPos] call F_createCrate;
+	_newbox setdir (random 360);
+	_newbox setpos _missionPos;
 	_box3 = ["ACE_Box_Misc", _missionPos, true] call boxSetup;
 
 	_aiGroup = createGroup GRLIB_side_enemy;

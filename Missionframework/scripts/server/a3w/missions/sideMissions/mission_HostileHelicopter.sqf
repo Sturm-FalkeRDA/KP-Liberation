@@ -109,8 +109,11 @@ _successExec =
 		};
 
 		_wreckPos = (getPosATL _veh) vectorAdd ([[_veh call fn_vehSafeDistance, 0, 0], random 360] call BIS_fnc_rotateVector2D);
-		_box1 = ["Box_East_AmmoVeh_F", _wreckPos, false] call boxSetup;
-		_box2 = ["Box_East_AmmoVeh_F", _wreckPos, false] call boxSetup;
+		//_box1 = ["Box_East_AmmoVeh_F", _wreckPos, false] call boxSetup;
+		//_box2 = ["Box_East_AmmoVeh_F", _wreckPos, false] call boxSetup;
+		private _spawnclass = selectRandom KP_liberation_crates;
+
+		private _newbox = [selectRandom KP_liberation_crates, 100, _wreckPos] call F_createCrate;
 	};
 
 	_successHintMessage = "The sky is clear again, the enemy patrol was taken out! Ammo crates have fallen near the wreck.";
